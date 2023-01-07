@@ -22,7 +22,7 @@ body {
 	cursor: pointer;
 }
 
-.mentions { display: none; }
+.mentions-body { display: none; }
 
 .mention {
 	border-bottom: 1px solid;

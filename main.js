@@ -1,7 +1,8 @@
 "use strict";
 
 let token;
-const serverId = "01F7ZSBSFHQ8TA81725KQCSDDP";
+let serverId;
+let userId;
 
 /* Helper functions */
 function qs(e) { return document.querySelector(e); }
@@ -16,6 +17,13 @@ qs(".token-form").addEventListener("submit", e => {
 	e.preventDefault();
 	token = qs("#token-input").value;
 	login();
+});
+
+/* Take server ID */
+qs(".server-form").addEventListener("submit", e => {
+	e.preventDefault();
+	serverId = qs("#server-input").value;
+	search(userId);
 });
 
 /* Delete token */
@@ -62,13 +70,17 @@ async function searchChannel(userId, channel) {
 
 async function login() {
 	let user = await getUser();
-	let userId = user._id;
+	userId = user._id;
 	renderUser(user);
 
 	localStorage.setItem("token", token);
 	qs(".saved-token").style.display = "block";
-	qs(".mentions").style.display = "block";
+	qs(".mentions-body").style.display = "block";
 
+}
+
+async function search() {
+	qs(".mentions").replaceChildren();
 	let server = await getServer();
 	// console.log(server);
 	for (let i = 0; i < server.channels.length; i++) {
