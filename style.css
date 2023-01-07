@@ -1,0 +1,37 @@
+body {
+	width: 900px;
+	max-width: 100%;
+	height: 100vh;
+	padding: 0;
+	margin: auto;
+	font-family: monospace;
+	font-size: 16px;
+}
+
+.token-form > p {
+	display: none;
+	font-size: 0.9em;
+	margin: 0;
+}
+
+.delete-token {
+	background: transparent;
+	border: none;
+	text-decoration: underline;
+	font-size: inherit;
+	cursor: pointer;
+}
+
+.mentions { display: none; }
+
+.mention {
+	border-bottom: 1px solid;
+	margin-bottom: 2rem;
+}
+
+.mention > p {
+	margin: 0;
+	padding: 0;
+}
+
+.m-username { font-weight: bold; }
